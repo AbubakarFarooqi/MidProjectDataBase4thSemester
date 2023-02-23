@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace MidProject
 {
-    public partial class formUpdateDialog : Form
+    public partial class formUpdateStudentDialog : Form
     {
         string regNo;
         public event EventHandler onSuccessUpdate;
-        public formUpdateDialog(string regNo, string firstName, string lasName, string contact, string email,
+        public formUpdateStudentDialog(string regNo, string firstName, string lasName, string contact, string email,
                                     string dob, string gender)
         {
             InitializeComponent();
@@ -28,7 +28,6 @@ namespace MidProject
             tpDOB.Text = dob;
             this.regNo = regNo;
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

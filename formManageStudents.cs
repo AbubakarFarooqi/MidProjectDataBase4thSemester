@@ -8,6 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.IO;
+using System.Reflection;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.Kernel.Pdf.Canvas.Draw;
 
 namespace MidProject
 {
@@ -15,7 +22,7 @@ namespace MidProject
     {
         SqlConnection con = Configuration.getInstance().getConnection();
         formSearchDialog formSearch;
-        formUpdateDialog formUpdate;
+        formUpdateStudentDialog formUpdate;
         SqlDataAdapter da;
         DataTable dt;
         public formManageStudents()
@@ -78,7 +85,7 @@ namespace MidProject
             string dob = DGV.Rows[rowIdx].Cells[5].Value.ToString();
             string gender = DGV.Rows[rowIdx].Cells[6].Value.ToString();
 
-            formUpdate = new formUpdateDialog(regNo, firstName, lastName, contact, email, dob, gender);
+            formUpdate = new formUpdateStudentDialog(regNo, firstName, lastName, contact, email, dob, gender);
             formUpdate.onSuccessUpdate += new EventHandler(onSuccessUpdate);
             formUpdate.ShowDialog();
         }
@@ -118,6 +125,85 @@ namespace MidProject
                 {
                     MessageBox.Show("Something Went Wrong while Updating Database. Kindly check your Connection and Credentials", "Failure");
                 }
+            }
+        }
+
+
+        //----------------
+
+        private void imgBtnPdf_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string path = "12";
+                using (var fbd = new FolderBrowserDialog())
+                {
+                    DialogResult result = fbd.ShowDialog();
+
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                    {
+                        path = fbd.SelectedPath;
+                    }
+                }
+
+                path += "\\fypAllStudents.pdf";
+                PdfWriter writer = new PdfWriter(path);
+                iText.Kernel.Pdf.PdfDocument pdf = new iText.Kernel.Pdf.PdfDocument(writer);
+                Document document = new Document(pdf);
+                Paragraph header = new Paragraph("Final Year Project")
+                .SetTextAlignment(TextAlignment.CENTER)
+                .SetFontSize(20).SetBold();
+                document.Add(header);
+                header = new Paragraph("List of All Students")
+                .SetTextAlignment(TextAlignment.CENTER)
+                .SetFontSize(15);
+                document.Add(header);
+                LineSeparator ls = new LineSeparator(new SolidLine());
+                document.Add(ls);
+                header = new Paragraph("\n\n");
+                document.Add(header);
+
+                int dgvrowcount = DGV.Rows.Count;
+                int dgvcolumncount = DGV.Columns.Count;
+
+                // Set The Table like new float [] {15f, 15f, 15f, 15f, 15f }
+                Table table = new Table(new float[] { 15f, 15f, 15f, 15f, 15f, 15f, 15f }).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+                table.SetAutoLayout();
+
+                //table.SetWidth(iText.Layout.Properties.UnitValue.CreatePercentValue(100));
+
+                // Print The DGV Header To Table Header
+                for (int i = 0; i < dgvcolumncount; i++)
+                {
+                    Cell headerCells = new Cell()
+                                  .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.LIGHT_GRAY)
+                                  .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER);
+                    //headerCells.SetNextRenderer(new RoundedCornersCellRenderer(headerCells));
+                    var gteCell = headerCells.Add(new Paragraph(DGV.Columns[i].HeaderText));
+                    table.AddHeaderCell(gteCell);
+                }
+
+                // Print The DGV Cells To Table Cells
+                for (int i = 0; i < dgvrowcount; i++)
+                {
+                    for (int c = 0; c < dgvcolumncount; c++)
+                    {
+                        Cell cells = new Cell()
+                                  .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.WHITE)
+                                  .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER);
+
+                        var gteCell = cells.Add(new Paragraph(DGV.Rows[i].Cells[DGV.Columns[c].HeaderText].Value.ToString()));
+                        table.AddCell(gteCell);
+                    }
+                }
+                document.Add(table);
+                document.Close();
+                MessageBox.Show("Document Has Been saved", "Success");
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Could Not Print");
             }
         }
     }

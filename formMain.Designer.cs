@@ -31,20 +31,27 @@ namespace MidProject
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMain));
             this.pnlSideBar = new System.Windows.Forms.Panel();
+            this.pnlAdvisorSubMenu = new System.Windows.Forms.Panel();
+            this.btnManageAdvisor = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddAdvisor = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSudentSubMenu = new System.Windows.Forms.Panel();
             this.btnManageStudents = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddStudent = new Guna.UI2.WinForms.Guna2Button();
-            this.btnStudent = new Guna.UI2.WinForms.Guna2Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.pnlMenuHeader = new System.Windows.Forms.Panel();
             this.pnlChildForm = new System.Windows.Forms.Panel();
+            this.btnAdvisors = new Guna.UI2.WinForms.Guna2Button();
+            this.btnStudent = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.pnlSideBar.SuspendLayout();
+            this.pnlAdvisorSubMenu.SuspendLayout();
             this.pnlSudentSubMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSideBar
             // 
             this.pnlSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.pnlSideBar.Controls.Add(this.pnlAdvisorSubMenu);
+            this.pnlSideBar.Controls.Add(this.btnAdvisors);
             this.pnlSideBar.Controls.Add(this.pnlSudentSubMenu);
             this.pnlSideBar.Controls.Add(this.btnStudent);
             this.pnlSideBar.Controls.Add(this.btnExit);
@@ -55,6 +62,63 @@ namespace MidProject
             this.pnlSideBar.Name = "pnlSideBar";
             this.pnlSideBar.Size = new System.Drawing.Size(200, 691);
             this.pnlSideBar.TabIndex = 0;
+            // 
+            // pnlAdvisorSubMenu
+            // 
+            this.pnlAdvisorSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(42)))));
+            this.pnlAdvisorSubMenu.Controls.Add(this.btnManageAdvisor);
+            this.pnlAdvisorSubMenu.Controls.Add(this.btnAddAdvisor);
+            this.pnlAdvisorSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAdvisorSubMenu.Location = new System.Drawing.Point(0, 275);
+            this.pnlAdvisorSubMenu.Name = "pnlAdvisorSubMenu";
+            this.pnlAdvisorSubMenu.Size = new System.Drawing.Size(200, 61);
+            this.pnlAdvisorSubMenu.TabIndex = 14;
+            // 
+            // btnManageAdvisor
+            // 
+            this.btnManageAdvisor.Animated = true;
+            this.btnManageAdvisor.BackColor = System.Drawing.Color.Transparent;
+            this.btnManageAdvisor.DefaultAutoSize = true;
+            this.btnManageAdvisor.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnManageAdvisor.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnManageAdvisor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnManageAdvisor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnManageAdvisor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManageAdvisor.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(42)))));
+            this.btnManageAdvisor.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnManageAdvisor.ForeColor = System.Drawing.Color.White;
+            this.btnManageAdvisor.IndicateFocus = true;
+            this.btnManageAdvisor.Location = new System.Drawing.Point(0, 27);
+            this.btnManageAdvisor.Name = "btnManageAdvisor";
+            this.btnManageAdvisor.Size = new System.Drawing.Size(132, 27);
+            this.btnManageAdvisor.TabIndex = 15;
+            this.btnManageAdvisor.Text = "    Manage Advisor";
+            this.btnManageAdvisor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnManageAdvisor.UseTransparentBackground = true;
+            this.btnManageAdvisor.Click += new System.EventHandler(this.btnManageAdvisor_Click);
+            // 
+            // btnAddAdvisor
+            // 
+            this.btnAddAdvisor.Animated = true;
+            this.btnAddAdvisor.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddAdvisor.DefaultAutoSize = true;
+            this.btnAddAdvisor.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddAdvisor.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddAdvisor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddAdvisor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddAdvisor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAddAdvisor.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(42)))));
+            this.btnAddAdvisor.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddAdvisor.ForeColor = System.Drawing.Color.White;
+            this.btnAddAdvisor.IndicateFocus = true;
+            this.btnAddAdvisor.Location = new System.Drawing.Point(0, 0);
+            this.btnAddAdvisor.Name = "btnAddAdvisor";
+            this.btnAddAdvisor.Size = new System.Drawing.Size(110, 27);
+            this.btnAddAdvisor.TabIndex = 12;
+            this.btnAddAdvisor.Text = "    Add Advisor";
+            this.btnAddAdvisor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddAdvisor.UseTransparentBackground = true;
+            this.btnAddAdvisor.Click += new System.EventHandler(this.btnAddAdvisor_Click);
             // 
             // pnlSudentSubMenu
             // 
@@ -83,7 +147,7 @@ namespace MidProject
             this.btnManageStudents.IndicateFocus = true;
             this.btnManageStudents.Location = new System.Drawing.Point(0, 27);
             this.btnManageStudents.Name = "btnManageStudents";
-            this.btnManageStudents.Size = new System.Drawing.Size(200, 27);
+            this.btnManageStudents.Size = new System.Drawing.Size(139, 27);
             this.btnManageStudents.TabIndex = 15;
             this.btnManageStudents.Text = "    Manage Students";
             this.btnManageStudents.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -106,12 +170,53 @@ namespace MidProject
             this.btnAddStudent.IndicateFocus = true;
             this.btnAddStudent.Location = new System.Drawing.Point(0, 0);
             this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(200, 27);
+            this.btnAddStudent.Size = new System.Drawing.Size(112, 27);
             this.btnAddStudent.TabIndex = 12;
             this.btnAddStudent.Text = "    Add Student";
             this.btnAddStudent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddStudent.UseTransparentBackground = true;
             this.btnAddStudent.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // pnlMenuHeader
+            // 
+            this.pnlMenuHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMenuHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlMenuHeader.Name = "pnlMenuHeader";
+            this.pnlMenuHeader.Size = new System.Drawing.Size(200, 120);
+            this.pnlMenuHeader.TabIndex = 0;
+            // 
+            // pnlChildForm
+            // 
+            this.pnlChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(42)))));
+            this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlChildForm.Location = new System.Drawing.Point(200, 0);
+            this.pnlChildForm.Name = "pnlChildForm";
+            this.pnlChildForm.Size = new System.Drawing.Size(1150, 691);
+            this.pnlChildForm.TabIndex = 1;
+            // 
+            // btnAdvisors
+            // 
+            this.btnAdvisors.Animated = true;
+            this.btnAdvisors.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdvisors.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdvisors.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdvisors.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdvisors.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdvisors.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdvisors.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnAdvisors.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnAdvisors.ForeColor = System.Drawing.Color.White;
+            this.btnAdvisors.Image = global::MidProject.Properties.Resources.STDH;
+            this.btnAdvisors.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAdvisors.IndicateFocus = true;
+            this.btnAdvisors.Location = new System.Drawing.Point(0, 228);
+            this.btnAdvisors.Name = "btnAdvisors";
+            this.btnAdvisors.Size = new System.Drawing.Size(200, 47);
+            this.btnAdvisors.TabIndex = 13;
+            this.btnAdvisors.Text = "Advisors";
+            this.btnAdvisors.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAdvisors.UseTransparentBackground = true;
+            this.btnAdvisors.Click += new System.EventHandler(this.btnAdvisors_Click);
             // 
             // btnStudent
             // 
@@ -158,23 +263,6 @@ namespace MidProject
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // pnlMenuHeader
-            // 
-            this.pnlMenuHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMenuHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlMenuHeader.Name = "pnlMenuHeader";
-            this.pnlMenuHeader.Size = new System.Drawing.Size(200, 120);
-            this.pnlMenuHeader.TabIndex = 0;
-            // 
-            // pnlChildForm
-            // 
-            this.pnlChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(42)))));
-            this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlChildForm.Location = new System.Drawing.Point(200, 0);
-            this.pnlChildForm.Name = "pnlChildForm";
-            this.pnlChildForm.Size = new System.Drawing.Size(1150, 691);
-            this.pnlChildForm.TabIndex = 1;
-            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,6 +276,8 @@ namespace MidProject
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlSideBar.ResumeLayout(false);
+            this.pnlAdvisorSubMenu.ResumeLayout(false);
+            this.pnlAdvisorSubMenu.PerformLayout();
             this.pnlSudentSubMenu.ResumeLayout(false);
             this.pnlSudentSubMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -204,6 +294,10 @@ namespace MidProject
         private Guna.UI2.WinForms.Guna2Button btnAddStudent;
         private Guna.UI2.WinForms.Guna2Button btnManageStudents;
         private System.Windows.Forms.Panel pnlChildForm;
+        private System.Windows.Forms.Panel pnlAdvisorSubMenu;
+        private Guna.UI2.WinForms.Guna2Button btnManageAdvisor;
+        private Guna.UI2.WinForms.Guna2Button btnAddAdvisor;
+        private Guna.UI2.WinForms.Guna2Button btnAdvisors;
     }
 }
 

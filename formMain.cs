@@ -36,6 +36,7 @@ namespace MidProject
         void hideAllSubmenu()
         {
             this.pnlSudentSubMenu.Hide();
+            this.pnlAdvisorSubMenu.Hide();
         }
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
@@ -84,6 +85,32 @@ namespace MidProject
         {
             hideAllSubmenu();
             openChildForm(new formManageStudents());
+        }
+
+        private void btnAdvisors_Click(object sender, EventArgs e)
+        {
+            hideAllSubmenu();
+            if (isSubMenuIsShowing)
+            {
+                isSubMenuIsShowing = false;
+            }
+            else
+            {
+                this.pnlAdvisorSubMenu.Show();
+                isSubMenuIsShowing = true;
+            }
+        }
+
+        private void btnAddAdvisor_Click(object sender, EventArgs e)
+        {
+            hideAllSubmenu();
+            openChildForm(new formAddAdvisor());
+        }
+
+        private void btnManageAdvisor_Click(object sender, EventArgs e)
+        {
+            hideAllSubmenu();
+            openChildForm(new formManageAdvisor());
         }
     }
 }
